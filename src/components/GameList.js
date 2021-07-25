@@ -1,24 +1,19 @@
 import styled from 'styled-components'
-import {UseGameContext} from '.././GameContext/GameContext'
+import { useSelector } from 'react-redux'
 import SingleGame from './SingleGame'
+import GamesSkeleton from './GamesSkeleton'
+import { ExclamationCircleIcon } from '@heroicons/react/outline'
 
 const GameList = () => {
 
-    const {loading, gamesList} = UseGameContext()
-
-    if(loading){
-        return (
-            <GameListLoader>
-                <p>loading games, please wait a second...</p>
-                <img src="https://miro.medium.com/max/441/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" alt="loading"/>
-            </GameListLoader>
-        )
-    }
+    const {loadedGames, loading, error} = useSelector(state => state.games)
 
     return (
         <GameListContainer>
+            {error && <div style={{textAlign: "center"}}> <ExclamationCircleIcon style={{height: "150px"}} />  <p>{error}</p></div> }
+            {loading &&  [1,2,3,4,5,6,7,8,9,10,11,12].map((n, idx) =>  <GamesSkeleton key={idx} />)}
             {
-                gamesList.map((game, index) => {
+                loadedGames?.map((game, index) => {
                     return (
                         <SingleGame key={index} {...game} />
                     )
@@ -30,24 +25,9 @@ const GameList = () => {
 
 export default GameList
 
-const GameListLoader = styled.div`
-    margin: 50px auto;
-    text-align: center;
-
-    > p {
-        font-size: 22px;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    > img {
-        height: 100px;
-        background-color: transparent;
-    }
-`
-
 const GameListContainer = styled.section`
     display: grid;
-    gap: 15px;
+    gap: 25px;
     width: 90vw;
     max-width: 1000px;
     margin: 50px auto;

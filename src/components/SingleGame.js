@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const SingleGame = ({GameTitle, GameDescription, GameImage}) => {
+const SingleGame = ({GameTitle, GameDescription, GameImage, Topic, Group, Level}) => {
     return (
         <GameContainer>
             <Image>
@@ -9,7 +9,12 @@ const SingleGame = ({GameTitle, GameDescription, GameImage}) => {
             </Image>
             <GameInfo>
                 <h3> {GameTitle} </h3>
-                <p> {GameDescription} </p>
+                <p> Description: {GameDescription} </p>
+                {/* <ul>
+                    <li> Topic: {Topic} </li>
+                    <li> Group: {Group} </li>
+                    <li> Level: {Level} </li> 
+                </ul> */}
             </GameInfo>
         </GameContainer>
     )
@@ -18,9 +23,11 @@ const SingleGame = ({GameTitle, GameDescription, GameImage}) => {
 export default SingleGame
 
 const GameContainer = styled.div`
-    border: 1px solid #999;
-    border-radius: 3px;
-    box-shadow: 3px 2px 5px #ccc;
+    /* border: 1px solid #fff; */
+    /* border-radius: 3px; */
+    /* box-shadow: 0 0 10px 1px #999; */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    border-bottom: 1px solid;
     padding: 1px;
 `
 
@@ -43,29 +50,36 @@ const Image = styled.div`
         width: 100%;
         height: 100%;
         transition: 500ms;
-        
-    }
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
 
-    &:hover {
-        > div {
-            background-color: rgba(0, 0, 0, 0.5)
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
     }
 
 `
 
 const GameInfo = styled.div`
-    padding: 10px;
+    padding: 5px 10px;
 
     > h3 {
-        font-family: 'Girassol', sans-serif;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
     }
 
     > p {
-        font-family: 'Poppins', sans-serif;
         color: #444;
-        font-size: 13px;
+        font-size: 11px;
+        font-style: italic;
+    }
+
+    > ul {
+        padding: 0 20px;
+        list-style-type: disc;
+
+        > li {
+            font-size: 10px;
+        }
     }
 `

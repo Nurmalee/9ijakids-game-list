@@ -12,5 +12,6 @@ const Footer = () => {
 export default Footer
 
 const FooterContainer = styled.footer`
-
+    height: 200px;
+    background-color: #333;
 `
