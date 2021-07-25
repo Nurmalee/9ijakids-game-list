@@ -80,6 +80,7 @@ const MenuBars = styled(MenuIcon)`
 `
 
 const NavMenuContainer = styled.div`
+    transition: 300ms;
     @media screen and (min-width: 800px) {
         height: auto !important;
     }
@@ -89,6 +90,7 @@ const NavMenu = styled.ul`
     list-style-type: none;
     text-align: center;
     border-top: 3px solid skyblue;
+    
 
     > li {
         text-transform: uppercase;
