@@ -13,7 +13,6 @@ const Banner = () => {
 
                 </BannerHighlight>
 
-
                 <BannerImage>
                     <img src={BannerImg} alt="Banner-Img" />
                 </BannerImage>
@@ -27,8 +26,7 @@ export default Banner
 const BannerContainer = styled.div`
     background-color: teal;
     position: relative;
-    height: 80vh;
-    min-height: 550px;
+    height: 550px;
     display: flex;
     align-items: center;
 `
@@ -39,16 +37,12 @@ const BannerContent = styled.div`
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     overflow: hidden;
 `
 
 const BannerImage = styled.div`
-    position: absolute;
-    top: 0;
-    right: 20px;
-    bottom: 0;
     height: 100%;
-    padding-right: 50px;
 
     > img {
         height: 100%;
@@ -57,7 +51,10 @@ const BannerImage = styled.div`
     }
 
     @media screen and (max-width: 900px) {
-        padding-right: 0;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        bottom: 0;
     }
 `
 
